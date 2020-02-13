@@ -81,3 +81,5 @@ command! -range -bang -nargs=* Rg
   \   fzf#vim#with_preview(), <bang>0)
 
 map <F4> :Rg <C-R><C-W><CR>
+map <TAB> :FZF <CR>
+map <C-h> :History <CR>
