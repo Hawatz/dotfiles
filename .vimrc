@@ -8,6 +8,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-rails'
 Plugin 'morhetz/gruvbox'
+Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'preservim/nerdtree'
@@ -22,6 +23,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'autozimu/LanguageClient-neovim'
+Plugin 'junegunn/fzf', { 'do': './install --bin' }
 
 call vundle#end()
 filetype plugin indent on
@@ -72,3 +74,10 @@ let g:deoplete#enable_at_startup = 1
 let g:alchemist#elixir_erlang_src = $HOME . '/.asdf/installs/elixir/'
 let g:mix_format_on_save = 1
 nmap <F3> :NERDTreeToggle<CR>
+
+command! -range -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+map <F4> :Rg <C-R><C-W><CR>
