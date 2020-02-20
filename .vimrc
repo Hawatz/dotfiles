@@ -12,7 +12,6 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'preservim/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'shougo/deoplete.nvim'
@@ -52,12 +51,6 @@ let g:airline_powerline_fonts = 1
 
 let g:airline_theme='gruvbox'
 
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-
-if executable('rg')
-  let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
-endif
-
 set hidden
 
 let g:LanguageClient_serverCommands = {
@@ -81,5 +74,6 @@ command! -range -bang -nargs=* Rg
   \   fzf#vim#with_preview(), <bang>0)
 
 map <F4> :Rg <C-R><C-W><CR>
-nmap <TAB> :FZF <CR>
+nmap <C-p> :FZF <CR>
 nmap <C-h> :History <CR>
+nmap <C-n> :noh <CR>
