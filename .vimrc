@@ -15,6 +15,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'shougo/deoplete.nvim'
+Plugin 'joshdick/onedark.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'mhinz/vim-mix-format'
@@ -73,7 +74,7 @@ command! -range -bang -nargs=* Rg
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
-map <F4> :Rg <C-R><C-W><CR>
+vnoremap <F4> "jy :Rg <C-R>j<CR>
 nmap <C-p> :FZF <CR>
 nmap <C-h> :History <CR>
 nmap <C-n> :noh <CR>
