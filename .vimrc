@@ -9,20 +9,17 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-rails'
 Plugin 'morhetz/gruvbox'
-Plugin 'chrisbra/NrrwRgn'
 Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'preservim/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
-Plugin 'shougo/deoplete.nvim'
-Plugin 'joshdick/onedark.vim'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'mhinz/vim-mix-format'
 Plugin 'vim-airline/vim-airline'
-Plugin 'slashmili/alchemist.vim'
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'junegunn/fzf', { 'do': './install --bin' }
 
@@ -55,8 +52,6 @@ let g:airline_theme='gruvbox'
 
 set hidden
 
-let g:deoplete#enable_at_startup = 1
-let g:alchemist#elixir_erlang_src = $HOME . '/.asdf/installs/elixir/'
 let g:mix_format_on_save = 1
 nmap <F3> :NERDTreeToggle<CR>
 
@@ -69,3 +64,18 @@ vnoremap <F4> "jy :Rg <C-R>j<CR>
 nmap <C-p> :FZF <CR>
 nmap <C-h> :History <CR>
 nmap <C-n> :noh <CR>
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+nmap <silent> gd <Plug>(coc-definition)
+
+let g:coc_global_extensions = ['coc-solargraph', 'coc-elixir']
