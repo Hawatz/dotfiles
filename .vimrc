@@ -1,3 +1,4 @@
+set mouse=a
 set clipboard+=unnamedplus
 set nocompatible
 filetype off
@@ -64,6 +65,7 @@ vnoremap <F4> "jy :Rg <C-R>j<CR>
 nmap <C-p> :FZF <CR>
 nmap <C-h> :History <CR>
 nmap <C-n> :noh <CR>
+nmap <C-s> :w <CR>
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
