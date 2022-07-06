@@ -23,6 +23,8 @@ Plugin 'mhinz/vim-mix-format'
 Plugin 'vim-airline/vim-airline'
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'junegunn/fzf', { 'do': './install --bin' }
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 call vundle#end()
 filetype plugin indent on
@@ -44,23 +46,19 @@ endif
 syntax on
 
 let g:gruvbox_contrast_dark = 'hard'
-
 colorscheme gruvbox
-
 let g:airline_powerline_fonts = 1
-
 let g:airline_theme='gruvbox'
-
 set hidden
-
 let g:mix_format_on_save = 1
-nmap <F3> :NERDTreeToggle<CR>
+let g:AutoPairsShortcutFastWrap = '<C-e>'
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
+nmap <F3> :NERDTreeToggle<CR>
 vnoremap <F4> "jy :Rg <C-R>j<CR>
 nmap <C-p> :FZF <CR>
 nmap <C-h> :History <CR>
@@ -79,5 +77,8 @@ function! s:check_back_space() abort
 endfunction
 
 nmap <silent> gd <Plug>(coc-definition)
+let g:coc_global_extensions = ['coc-solargraph', 'coc-elixir', 'coc-html', 'coc-css', 'coc-tsserver', 'coc-prettier']
 
-let g:coc_global_extensions = ['coc-solargraph', 'coc-elixir']
+autocmd vimenter * NERDTree
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
