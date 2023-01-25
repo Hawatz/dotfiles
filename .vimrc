@@ -1,7 +1,7 @@
 set mouse=a
 set clipboard+=unnamedplus
 set nocompatible
-filetype off
+"filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 set tags=./tags;
 call vundle#begin()
@@ -11,20 +11,24 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-rails'
 Plugin 'morhetz/gruvbox'
 Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf', { 'do': './install --bin' }
 Plugin 'tpope/vim-eunuch'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'preservim/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
+Plugin 'shumphrey/fugitive-gitlab.vim'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'mhinz/vim-mix-format'
 Plugin 'vim-airline/vim-airline'
 Plugin 'elixir-editors/vim-elixir'
-Plugin 'junegunn/fzf', { 'do': './install --bin' }
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'github/copilot.vim'
+Plugin 'sainnhe/gruvbox-material'
+
 
 call vundle#end()
 filetype plugin indent on
@@ -45,10 +49,16 @@ endif
 
 syntax on
 
-let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
+set background=dark
+"let g:gruvbox_contrast_dark = 'hard'
 let g:airline_powerline_fonts = 1
-let g:airline_theme='gruvbox'
+let g:airline_theme='gruvbox_material'
+
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_foreground = 'original'
+
+colorscheme gruvbox-material
+
 set hidden
 let g:mix_format_on_save = 1
 let g:AutoPairsShortcutFastWrap = '<C-e>'
@@ -70,6 +80,7 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -80,5 +91,12 @@ nmap <silent> gd <Plug>(coc-definition)
 let g:coc_global_extensions = ['coc-solargraph', 'coc-elixir', 'coc-html', 'coc-css', 'coc-tsserver', 'coc-prettier']
 
 autocmd vimenter * NERDTree
+autocmd vimenter * wincmd l
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
+
+imap <M-.> <Plug>(copilot-next)
+imap <M-,> <Plug>(copilot-previous)
+imap <silent><script><expr> <M-/> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+:command! CopyBuffer let @+ = expand('%')
