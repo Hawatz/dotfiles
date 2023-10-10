@@ -1,0 +1,7 @@
+{
+  "elixir.pathToElixirLS": "~/elixir-ls/rel/language_server.sh",
+  "elixirLS.dialyzerEnabled": true,
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript",
+    "typescriptreact", "javascriptreact", "css", "less", "scss", "json",
+    "graphql", "markdown", "vue", "svelte", "yaml", "html"]
+}
