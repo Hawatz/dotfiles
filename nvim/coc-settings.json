@@ -1,7 +1,25 @@
 {
   "elixir.pathToElixirLS": "~/elixir-ls/rel/language_server.sh",
   "elixirLS.dialyzerEnabled": true,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript",
-    "typescriptreact", "javascriptreact", "css", "less", "scss", "json",
-    "graphql", "markdown", "vue", "svelte", "yaml", "html"]
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "css",
+    "less",
+    "scss",
+    "json",
+    "graphql",
+    "markdown",
+    "vue",
+    "svelte",
+    "yaml",
+    "html",
+    "ruby"
+  ],
+  "solargraph.diagnostics": true,
+  "solargraph.autoformat": true,
+  "solargraph.formatting": true,
+  "solargraph.hover": true
 }

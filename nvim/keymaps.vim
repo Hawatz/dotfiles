@@ -5,6 +5,7 @@ nmap <C-h> :History <CR>
 nmap <C-n> :noh <CR>
 nmap <C-s> :w <CR>
 nmap <Leader>gb :Git blame <CR>
+nmap <Leader>q :q <CR>
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -20,13 +21,3 @@ imap <script><silent><nowait><expr> <M-/> codeium#Accept() . "\<Esc>"
 imap <M-.>   <Cmd>call codeium#CycleCompletions(1)<CR>
 imap <M-,>   <Cmd>call codeium#CycleCompletions(-1)<CR>
 :command! CopyBuffer let @+ = expand('%')
-
-nnoremap <silent> <Leader>k :call ShowDocumentation()<CR>
-
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction

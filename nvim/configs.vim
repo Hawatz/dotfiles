@@ -40,5 +40,3 @@ autocmd vimenter * NERDTree
 autocmd vimenter * wincmd l
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
-
-let g:rufo_auto_formatting = 1

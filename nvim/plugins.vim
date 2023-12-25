@@ -3,7 +3,6 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'tpope/vim-rails'
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/fzf', { 'do': './install --bin' }
 Plugin 'tpope/vim-eunuch'
@@ -18,7 +17,6 @@ Plugin 'elixir-editors/vim-elixir'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'vim-airline/vim-airline'
-Plugin 'ruby-formatter/rufo-vim'
 Plugin 'Exafunction/codeium.vim'
 Plugin 'RRethy/nvim-base16'
 Plugin 'ellisonleao/gruvbox.nvim'
