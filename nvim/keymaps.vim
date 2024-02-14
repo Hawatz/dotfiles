@@ -6,6 +6,8 @@ nmap <C-n> :noh <CR>
 nmap <C-s> :w <CR>
 nmap <Leader>gb :Git blame <CR>
 nmap <Leader>q :q <CR>
+nmap <Leader>cb :CopyBuffer <CR>
+nmap <Leader>nf :NERDTreeFind <CR>
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
