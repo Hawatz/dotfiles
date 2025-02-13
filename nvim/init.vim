@@ -13,3 +13,6 @@ source ~/.config/nvim/custom.lua
 
 " Load keymaps
 source ~/.config/nvim/keymaps.vim
+
+" Load gruvbox
+source ~/.config/nvim/gruvbox.lua

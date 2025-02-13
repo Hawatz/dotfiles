@@ -16,7 +16,8 @@ if (empty($TMUX))
   endif
 endif
 
-colorscheme base16-gruvbox-dark-hard
+set background=dark
+colorscheme gruvbox
 
 let g:airline_powerline_fonts = 1
 
@@ -34,7 +35,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_global_extensions = ['coc-solargraph', 'coc-elixir', 'coc-html', 'coc-css', 'coc-tsserver', 'coc-prettier']
+let g:coc_global_extensions = ['coc-solargraph', 'coc-elixir', 'coc-prettier', 'coc-go']
 
 autocmd vimenter * NERDTree
 autocmd vimenter * wincmd l

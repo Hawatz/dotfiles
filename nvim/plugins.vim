@@ -18,10 +18,8 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'vim-airline/vim-airline'
 Plugin 'Exafunction/codeium.vim'
-Plugin 'RRethy/nvim-base16'
-Plugin 'ellisonleao/gruvbox.nvim'
-Plugin 'navarasu/onedark.nvim'
 Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plugin 'RRethy/nvim-treesitter-endwise'
+Plugin 'ellisonleao/gruvbox.nvim'
 
 call vundle#end()
